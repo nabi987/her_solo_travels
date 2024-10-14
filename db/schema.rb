@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_14_155533) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_14_160207) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,6 +23,18 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_14_155533) do
     t.index ["requestee_id"], name: "index_friendships_on_requestee_id"
     t.index ["requester_id", "requestee_id"], name: "index_friendships_on_requester_id_and_requestee_id", unique: true
     t.index ["requester_id"], name: "index_friendships_on_requester_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "country"
+    t.string "city"
+    t.date "start_date"
+    t.date "end_date"
+    t.text "activites"
+    t.bigint "trip_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_locations_on_trip_id"
   end
 
   create_table "trips", force: :cascade do |t|
@@ -53,5 +65,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_14_155533) do
 
   add_foreign_key "friendships", "users", column: "requestee_id"
   add_foreign_key "friendships", "users", column: "requester_id"
+  add_foreign_key "locations", "trips"
   add_foreign_key "trips", "users"
 end
