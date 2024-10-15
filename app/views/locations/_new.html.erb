@@ -1,6 +1,7 @@
 <div class ="locations form">
 
    <%= simple_form_for [@trip, @location] do |f| %>
+      <%= f.label :country, "Country *" %>
       <%= f.country_select :country, as: :country, input_html: {class:"form-control"}%>
       <%= f.input :city %>
       <%= f.input :activites %>
