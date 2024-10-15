@@ -5,6 +5,7 @@ class LocationsController < ApplicationController
 
   def show
     @location = Location.find(params[:id])
+    @locations = Location.where(city: @location.city)
   end
 
   def new
