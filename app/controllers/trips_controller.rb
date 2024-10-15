@@ -11,7 +11,7 @@ class TripsController < ApplicationController
     @trip = Trip.new(trip_params)
     @trip.save
   end
-  redirect_to trip_path(@trip)
+
 
   private
 
