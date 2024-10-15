@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   def index
-    @trip = Trip.all
+    @trips = Trip.all
   end
 
   def show
@@ -12,9 +12,10 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(trip_params)
+    @trip = Trip.create(trip_params)
+    @trip.user = current_user
     if @trip.save
-      redirect_to @trip, notice: "This trip was successfully created"
+      redirect_to trip_path(@trip)
     else
       render :new
     end
