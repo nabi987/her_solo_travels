@@ -13,13 +13,16 @@ class TripsController < ApplicationController
 
   def create
     @trip = Trip.new(trip_params)
-    @trip.save
+    if @trip.save
+      redirect_to @trip, notice: "This trip was successfully created"
+    else
+      render :new
+    end
   end
-
 
   private
 
   def trip_params
-    params.require(:trip).permit(:name, :photo, :user_id)
+    params.require(:trip).permit(:name, :photo)
   end
 end
