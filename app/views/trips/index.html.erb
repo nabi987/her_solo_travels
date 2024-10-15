@@ -1,1 +1,6 @@
-<h1>Trips Index page</h1>
+<h1>View all trips</h1>
+<ul>
+  <% @trips.each do |trip| %>
+    <li><%= link_to trip.name, trip_path(trip) %></li>
+  <% end %>
+</ul>
