@@ -1,13 +1,12 @@
 <div class ="locations form">
-  <h1>Locations form</h1>
 
-   <%= simple_form_for(@necklace) do |f| %>
-      <%= f.input :country %>
+   <%= simple_form_for [@trip, @location] do |f| %>
+      <%= f.country_select :country, as: :country, input_html: {class:"form-control"}%>
       <%= f.input :city %>
-      <%= f.input :description %>
+      <%= f.input :activites %>
       <%= f.input :start_date, as: :string, input_html:{data: {datepicker_target: "startDate"}} %>
       <%= f.input :end_date, as: :string, input_html:{data: {datepicker_target: "endDate"}} %>
-      <%= f.submit :Rent %>
+      <%= f.submit :Submit %>
     <% end %>
 
 </div>

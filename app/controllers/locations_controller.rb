@@ -13,7 +13,13 @@ class LocationsController < ApplicationController
 
   def create
     @location = Location.new(location_params)
-    @location.save
+    @location.user = current_user
+    @trip = Trip.find(params[:id])
+    if @location.save
+      redirect_to trip_path(@trip)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   private
@@ -21,5 +27,4 @@ class LocationsController < ApplicationController
   def location_params
     params.require(:trip).permit(:name, :photo, :user_id)
   end
-
 end
