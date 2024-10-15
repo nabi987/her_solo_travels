@@ -1,0 +1,13 @@
+<div class ="locations form">
+  <h1>Locations form</h1>
+
+   <%= simple_form_for(@necklace) do |f| %>
+      <%= f.input :country %>
+      <%= f.input :city %>
+      <%= f.input :description %>
+      <%= f.input :start_date, as: :string, input_html:{data: {datepicker_target: "startDate"}} %>
+      <%= f.input :end_date, as: :string, input_html:{data: {datepicker_target: "endDate"}} %>
+      <%= f.submit :Rent %>
+    <% end %>
+
+</div>
