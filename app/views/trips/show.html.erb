@@ -1,7 +1,16 @@
 <h1>Add a new location to <%=@trip.name %></h1>
-<ul>
-<%@trip.locations.each do |location|  %>
- <li> <%= location.city %> </li>
-<% end %>
-</ul>
-<%= render "locations/new", location: @location, trip: @trip %>
+<div class="container">
+    <div class="location-cards">
+      <%@trip.locations.each do |location|  %>
+      <div class="card">
+        <h2><%= location.city %>,<%= location.country %> </h2>
+        <p>Activities: <%= location.activites %> </p>
+        <p>Start Date: <%= location.start_date %> </p>
+        <p>End Date: <%= location.end_date %> </p>
+      </div>
+      <% end %>
+    </div>
+    <div class="locations-form">
+      <%= render "locations/new", location: @location, trip: @trip %>
+    </div>
+  </div>
