@@ -12,7 +12,7 @@
                 as: :select, collection: (18..99).to_a,
                 required: true%>
     <%= f.input :profile_bio %>
-    <%= f.input :photo, as: :file %>
+    <%= f.input :photo, as: :file, label: "Profile Photo" %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
