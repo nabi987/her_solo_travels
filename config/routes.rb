@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     end
   end
   resources :locations, only: [:show]
-  resources :friendships, only: [:create, :show, :index, :update]
+  resources :friendships, only: [:create, :show, :index, :update] do
+    resources :messages, only: :create
+  end
   resources :users, only: :show
 end
