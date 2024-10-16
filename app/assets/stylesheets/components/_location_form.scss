@@ -1,0 +1,31 @@
+
+.locations-form{
+  max-width: 500px;
+  margin-top: 15px;
+  padding: 20px;
+  background-color: #ECCBAA;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-end;
+
+
+}
+
+.locations-form div{
+  margin-bottom: 15px;
+
+}
+
+.form-control{
+  width: 100%;
+  padding: 10px;
+
+}
+
+.button{
+  background-color: #F5E2E2;
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+}
