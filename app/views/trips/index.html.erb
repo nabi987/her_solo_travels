@@ -4,3 +4,5 @@
     <li><%= link_to trip.name, trip_path(trip) %></li>
   <% end %>
 </ul>
+
+<%= link_to "Add a trip", new_trip_path, class: "btn btn-outline-primary" %>
