@@ -14,11 +14,15 @@
 
     </div>
     <div>
-      <%= f.input :start_date, as: :string, input_html:{data: {datepicker_target: "startDate"}} %>
+      <%= f.input :start_date,
+                  as: :string,
+                  input_html:{ data: { controller: "datepicker" } } %>
 
     </div>
     <div>
-      <%= f.input :end_date, as: :string, input_html:{data: {datepicker_target: "endDate"}} %>
+      <%= f.input :end_date,
+                  as: :string,
+                  input_html: { data: { controller: "datepicker" } } %>
 
     </div>
       <%= f.submit :Submit %>
