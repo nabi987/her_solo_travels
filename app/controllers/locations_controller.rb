@@ -21,7 +21,7 @@ class LocationsController < ApplicationController
     if @location.save
       redirect_to trip_path(@trip)
     else
-      render :new, status: :unprocessable_entity
+      render :_new, status: :unprocessable_entity
     end
   end
 
