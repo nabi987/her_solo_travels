@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :trips, only: [:index, :show, :new, :create] do
     resources :locations, only: [:new, :create] do
-      resources :friendships, only: :create
+      # resources :friendships, only: :create
     end
   end
   resources :locations, only: [:show]
