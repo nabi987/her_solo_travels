@@ -1,4 +1,7 @@
 <h1>Add a new location to <%=@trip.name %></h1>
-
-
-<%= render "locations/new", location: @location %>
+<ul>
+<%@trip.locations.each do |location|  %>
+ <li> <%= location.city %> </li>
+<% end %>
+</ul>
+<%= render "locations/new", location: @location, trip: @trip %>

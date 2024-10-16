@@ -10,12 +10,14 @@ class LocationsController < ApplicationController
 
   def new
     @location = Location.new
+    @trip = Trip.find(params[:trip_id])
   end
 
   def create
+    @trip = Trip.find(params[:trip_id])
     @location = Location.new(location_params)
-    @location.user = current_user
-    @trip = Trip.find(params[:id])
+    @location.trip = @trip
+    @location.trip.user = current_user
     if @location.save
       redirect_to trip_path(@trip)
     else
@@ -25,7 +27,11 @@ class LocationsController < ApplicationController
 
   private
 
+  def trip_params
+    params.require(:trip).permit(:name, :trip_image, :user_id)
+  end
+
   def location_params
-    params.require(:trip).permit(:name, :photo, :user_id)
+    params.require(:location).permit(:country, :city, :activites, :start_date, :end_date)
   end
 end
