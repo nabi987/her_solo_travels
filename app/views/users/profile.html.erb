@@ -9,7 +9,10 @@
     <div>
       <h5>Trips</h5>
       <% @user.trips.each do |trip| %>
+      <div>
         <%= trip.name %>
+        <hr>
+      </div>
       <% end %>
     </div>
   <% else %>
