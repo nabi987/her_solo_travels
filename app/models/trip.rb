@@ -3,5 +3,5 @@ class Trip < ApplicationRecord
   has_many :locations
   has_one_attached :photo
   validates :name, presence: true
-  validates :photo, presence: true
+  # validates :photo, presence: true
 end
