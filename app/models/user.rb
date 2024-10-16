@@ -11,6 +11,4 @@ class User < ApplicationRecord
 
   # Optional: Get all friends (users connected by friendships)
   has_many :friends, through: :sent_friendships, source: :requestee
-
-  validates :age, inclusion: { in: 18..99 }
 end

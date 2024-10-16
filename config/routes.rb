@@ -19,4 +19,5 @@ Rails.application.routes.draw do
     end
   end
   resources :friendships, only: [:create, :show, :index, :update]
+  resources :users, only: :show
 end
