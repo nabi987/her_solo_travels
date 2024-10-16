@@ -11,4 +11,7 @@ class User < ApplicationRecord
 
   # Optional: Get all friends (users connected by friendships)
   has_many :friends, through: :sent_friendships, source: :requestee
+  has_many :trips
+  has_many :locations, through: :trips
+  has_one_attached :photo
 end
