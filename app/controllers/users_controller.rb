@@ -7,4 +7,8 @@ class UsersController < ApplicationController
       requestee: @user, requester: current_user
     )
   end
+
+  def profile
+    @user = current_user
+  end
 end
