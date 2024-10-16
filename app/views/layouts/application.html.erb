@@ -18,9 +18,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
+  <body><%= render "shared/header" %>
 <%= render "shared/flashes" %>
 
     <%= yield %>
-  </body>
+  </body><%= render "shared/footer" %>
 </html>
