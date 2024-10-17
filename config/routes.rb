@@ -26,4 +26,5 @@ Rails.application.routes.draw do
 
   get "profile", to: "users#profile"
   get "landing", to: "pages#landing"
+  get 'home', to: 'pages#home'
 end
