@@ -8,6 +8,8 @@ class FriendshipsController < ApplicationController
   end
 
   def show
+    @friendship = Friendship.find(params[:id])
+    @message = Message.new
   end
 
   def create
