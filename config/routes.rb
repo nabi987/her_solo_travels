@@ -25,6 +25,6 @@ Rails.application.routes.draw do
   resources :users, only: :show
 
   get "profile", to: "users#profile"
+  get "landing", to: "pages#landing"
   get 'home', to: 'pages#home'
-  get 'landing', to: 'pages#landing'
 end

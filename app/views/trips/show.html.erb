@@ -3,11 +3,13 @@
     <div class="location-cards">
       <%@trip.locations.each do |location|  %>
       <div class="card">
-        <h2><%= location.city %>,<%= location.country %> </h2>
-        <p>Activities: <%= location.activites %> </p>
-        <p>Start Date: <%= location.start_date %> </p>
-        <p>End Date: <%= location.end_date %> </p>
-      </div>
+        <%= link_to location_path(location) do %>
+          <h2><%= location.city %>,<%= location.country %> </h2>
+          <p>Activities: <%= location.activites %> </p>
+          <p>Start Date: <%= location.start_date %> </p>
+          <p>End Date: <%= location.end_date %> </p>
+        <% end %>
+        </div>
       <% end %>
     </div>
     <div class="locations-form">

@@ -1,1 +1,39 @@
 // Specific CSS for your home-page
+.landing{
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+}
+.landing h1{
+  height: 150vh;
+  margin-top: 40px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Fira Sans", sans-serif;
+}
+
+.landing-p{
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Fira Sans", sans-serif;
+}
+.landing-buttons{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:10px;
+}
+
+.btn{
+  background-color: #F8D1C1;
+  border:none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  width: 500px;
+  justify-content: center;
+  text-align: center;
+
+}
