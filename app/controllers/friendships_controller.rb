@@ -1,10 +1,10 @@
 class FriendshipsController < ApplicationController
   def index
     @friendships = Friendship.all
-    return unless params[:query].present?
-
-    sql_subquery = "first_name ILIKE :query OR last_name ILIKE :query"
-    @users = @user.where(sql_subquery, query: "%#{params[:query]}%")
+    if params[:query].present?
+      sql_subquery = "users.first_name ILIKE :query OR users.last_name ILIKE :query"
+      @friendships = Friendship.joins(:requestee).where(sql_subquery, query: "%#{params[:query]}%")
+    end
   end
 
   def show
