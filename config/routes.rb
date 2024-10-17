@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "pages#home"
+  root to: "pages#landing"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   resources :users, only: :show
 
   get "profile", to: "users#profile"
-  get 'homefeed', to: 'pages#homefeed'
+  get 'home', to: 'pages#home'
+  get 'landing', to: 'pages#landing'
 end
