@@ -1,9 +1,9 @@
 require 'json'
 
 puts "cleaning the db...."
-# Location.destroy_all
-# Trip.destroy_all
-# User.destroy_all
+ Location.destroy_all
+ Trip.destroy_all
+ User.destroy_all
 puts "database clean!"
 puts "creating users..."
 
@@ -88,7 +88,7 @@ puts "creating users..."
 #   activites: "motorcross",
 #   trip: jungle
 # )
-
+require "open-uri"
 # Path to the JSON file
 file_path = Rails.root.join('db', 'seed_data.json')
 
@@ -105,8 +105,12 @@ users.each do |user_data|
     last_name: user_data['last_name'],
     age: user_data['age'],
     profile_bio: user_data['profile bio'],
-    image_url: user_data['image_url'],
+    #image_url: ,
     email: user_data['email'],
     password: BCrypt::Password.create(user_data['password'])
   )
+
+file = URI.parse(user_data['image_url']).open
+user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+user.save
 end
