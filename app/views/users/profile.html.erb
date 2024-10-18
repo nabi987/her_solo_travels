@@ -11,11 +11,10 @@
   <div class="trips">
     <h5><%= @user.first_name %>'s Trips</h5>
     <% @user.trips.each do |trip| %>
-   <div class="trips">
-      <%= trip.name %>
-   </div>
+      <div class="trip" >
+        <%= link_to "#{trip.name}", trip_path(trip) %>
+      </div>
     <% end %>
-  </div>
   <% else %>
     <p>No user found.</p>
   <% end %>
