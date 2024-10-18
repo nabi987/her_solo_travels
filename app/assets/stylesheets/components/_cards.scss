@@ -1,7 +1,5 @@
 .container{
-  display: flex;
-  justify-content: space-between;
-
+  padding: 20px;
 }
 
 .location-cards{
@@ -20,7 +18,7 @@
   border: 2px solid #ECCBAA;
   border-radius: 4px;
   padding: 16px;
-  width: 200px;
+  width: 274px;
   max-height: 300px;
   background-color: #F5E2E2;
   color: black;
@@ -28,6 +26,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  p{
+    line-height: 100%;
+
+  }
 }
 
 .card a{
