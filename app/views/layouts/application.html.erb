@@ -22,8 +22,15 @@
   </head>
 
   <body>
-  <%= render "shared/header" %>
+  <% unless request.path == '/' %>
+    <%= render "shared/header" %>
+  <% end %>
+
   <%= render "shared/flashes" %>
-      <%= yield %>
-  </body><%= render "shared/footer" %>
+  <%= yield %>
+
+  <% unless request.path == '/' %>
+    <%= render "shared/footer" %>
+  <% end %>
+  </body>
 </html>
