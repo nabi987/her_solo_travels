@@ -1,3 +1,7 @@
+.location-user-cards{
+  display: flex;
+}
+
 .location-user-card{
   overflow: hidden;
   background-color: white;
@@ -9,12 +13,11 @@
 
 }
 
-.card-image img{
+.card-image img {
   height: auto;
-  width: 100%;
+  width: 200px;
   max-height: 200px;
   object-fit: cover;
-
 }
 
 .card-location-infos{
