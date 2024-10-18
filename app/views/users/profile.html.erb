@@ -3,19 +3,19 @@
   <div class="profile-header">
     <%= cl_image_tag @user.photo.key, class:"profile-photo", alt:"Profile photo" %>
     <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+   </div>
+  <div class ="bio">
+    <h5>About me</h5>
+    <%= @user.profile_bio %>
   </div>
-    <div class ="bio">
-      <h5>About me</h5>
-      <%= @user.profile_bio %>
-    </div>
-    <div class="trips">
-      <h5><%= @user.first_name %>'s Trips</h5>
-      <% @user.trips.each do |trip| %>
-     <div class="trips">
-        <%= trip.name %>
-        </div>
-      <% end %>
-    </div>
+  <div class="trips">
+    <h5><%= @user.first_name %>'s Trips</h5>
+    <% @user.trips.each do |trip| %>
+   <div class="trips">
+      <%= trip.name %>
+   </div>
+    <% end %>
+  </div>
   <% else %>
     <p>No user found.</p>
   <% end %>
