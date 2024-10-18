@@ -8,7 +8,7 @@
     <% else %>
       <%= simple_form_for @friendship do |f| %>
         <%= f.input :requestee_id, label:false, input_html:{value: @user.id, class:"d-none"} %>
-        <%= f.button :submit, class: "btn btn-warning" %>
+        <%= f.button "Add", class: "btn btn-warning" %>
       <% end %>
 
     <% end %>
