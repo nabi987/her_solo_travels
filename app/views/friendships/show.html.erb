@@ -1,0 +1,23 @@
+<%= simple_form_for [@friendship, @message],
+  html: {class: "d-flex",
+         data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" }} do |f|%>
+<% if current_user.id == @friendship.requester %>
+  <% other_user = @friendship.requestee %>
+<%else%>
+  <% other_user = @friendship.requester %>
+  <% end %>
+
+<%= f.input :content,
+  label: false,
+  placeholder: "Message #{other_user.first_name}",
+    wrapper_html: {class: "flex-grow-1"}
+  %>
+  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <% end %>
+
+<%=  turbo_stream_from "friendship_#{@friendship.id}_messages" %>
+<div id="messages" class="messages">
+  <% @friendship.messages.each do |message| %>
+    <%= render "messages/message", message: message , user: current_user %>
+<% end %>
+</div>

@@ -1,5 +1,8 @@
-.chat {
-  .message {
+
+
+
+
+.message {
     display: flex;
     flex-direction: column;
     margin-bottom: 1rem;
@@ -31,4 +34,3 @@
     align-self: flex-end;
     background: $gray-200;
   }
-}
