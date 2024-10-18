@@ -1,18 +1,19 @@
-<div>
+<div class="profile-card">
   <% if @user %>
+  <div class="profile-header">
+    <%= cl_image_tag @user.photo.key, class:"profile-photo", alt:"Profile photo" %>
     <h4><%= @user.first_name %> <%= @user.last_name %></h4>
-    <%= cl_image_tag @user.photo.key, class:"d-block w-50", alt:"Profile photo" %>
-    <div>
-      <h5>Bio</h5>
+  </div>
+    <div class ="bio">
+      <h5>About me</h5>
       <%= @user.profile_bio %>
     </div>
-    <div>
-      <h5>Trips</h5>
+    <div class="trips">
+      <h5><%= @user.first_name %>'s Trips</h5>
       <% @user.trips.each do |trip| %>
-      <div>
+     <div class="trips">
         <%= trip.name %>
-        <hr>
-      </div>
+        </div>
       <% end %>
     </div>
   <% else %>

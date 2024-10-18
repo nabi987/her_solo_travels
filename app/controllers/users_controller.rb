@@ -10,5 +10,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
+    redirect_to new_session_path, alert: "You need to log in." unless @user
+
   end
 end
