@@ -1,9 +1,9 @@
 require 'json'
 
 puts "cleaning the db...."
- Location.destroy_all
- Trip.destroy_all
- User.destroy_all
+#  Location.destroy_all
+#  Trip.destroy_all
+#  User.destroy_all
 puts "database clean!"
 puts "creating users..."
 
@@ -191,4 +191,21 @@ Location.create!(
   end_date: "01-03-2025",
   activites: "carnival of course and party",
   trip: sm
+)
+
+robinia = User.find_by(first_name: "Robinia")
+
+bali = Trip.create!(
+  name: "Indonesia",
+  trip_image: "https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  user: robinia
+)
+
+Location.create!(
+  country: "Indonesia",
+  city: "Bali",
+  start_date: "15-04-2024",
+  end_date: "03-05-2024",
+  activites: "Surfing and temples",
+  trip: bali
 )
