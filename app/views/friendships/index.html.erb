@@ -13,7 +13,7 @@
 
 <% if @friendships.any? %>
     <% @friendships.each do |friend| %>
-      <h5><%= friend.requestee.first_name %><%= friend.requestee.last_name %></h5>
+      <h5><%= friend.requestee.first_name %> <%= friend.requestee.last_name %></h5>
       <%= cl_image_tag friend.requestee.photo.key, class:"d-block w-50", alt:"Profile photo"%>
     <% end %>
   <% else %>
