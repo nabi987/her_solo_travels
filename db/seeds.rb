@@ -114,3 +114,81 @@ file = URI.parse(user_data['image_url']).open
 user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
 user.save
 end
+
+
+susannah = User.find_by(first_name: "Susannah")
+
+brazil = Trip.create!(
+  name: "Brazil 2025",
+  trip_image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  user: susannah
+)
+
+Location.create!(
+  country: "Brazil",
+  city: "Rio de Janeiro",
+  start_date: "01-01-2025",
+  end_date: "31-05-2025",
+  activites: "carnival, dancing, food",
+  trip: brazil
+)
+
+sabra = User.find_by(first_name: "Sabra")
+
+samerica = Trip.create!(
+  name: "South America 2025!!",
+  trip_image: "https://images.unsplash.com/photo-1465513527097-544020a68b06?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  user: sabra
+)
+
+Location.create!(
+  country: "Brazil",
+  city: "Rio de Janeiro",
+  start_date: "01-03-2025",
+  end_date: "30-04-2025",
+  activites: "carnival!",
+  trip: samerica
+)
+
+Location.create!(
+  country: "Peru",
+  city: "Cusco",
+  start_date: "01-04-2025",
+  end_date: "30-06-2025",
+  activites: "Machu Pichu, markets, food, architecture",
+  trip: samerica
+)
+
+sumitra = User.find_by(first_name: "Sumitra")
+
+america = Trip.create!(
+  name: "Americas 2025",
+  trip_image: "https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  user: sumitra
+)
+
+Location.create!(
+  country: "Brazil",
+  city: "Rio de Janeiro",
+  start_date: "01-01-2025",
+  end_date: "15-02-2025",
+  activites: "carnivaaaal, culture, food",
+  trip: america
+)
+
+giulietta = User.find_by(first_name: "Giulietta")
+
+sm = Trip.create!(
+  name: "South America'25",
+  trip_image: "https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  user: giulietta
+)
+
+Location.create!(
+  country: "Brazil",
+  city: "Rio de Janeiro",
+  start_date: "01-01-2025",
+  end_date: "01-03-2025",
+  activites: "carnival of course and party",
+  trip: sm
+)
