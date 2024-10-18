@@ -9,6 +9,6 @@ class Message < ApplicationRecord
   def broadcast_message
     broadcast_append_to "friendship_#{friendship.id}_messages",
                         partial: "messages/message",
-                        locals: { message:self }
+                        locals: { message:self , user:user}
   end
 end
