@@ -29,20 +29,3 @@
 .footer-btn:hover {
   background-color: #e1c299;
 }
-
-.footer-links {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-.footer-links a {
-  color: white;
-  opacity: 0.75;
-  text-decoration: none;
-  font-size: 24px;
-  padding: 0px 10px;
-}
-
-.footer-links a:hover{
-  opacity:1;
-}
