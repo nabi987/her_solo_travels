@@ -1,9 +1,9 @@
 require 'json'
 
 puts "cleaning the db...."
-#  Location.destroy_all
-#  Trip.destroy_all
-#  User.destroy_all
+ Location.destroy_all
+ Trip.destroy_all
+ User.destroy_all
 puts "database clean!"
 puts "creating users..."
 
@@ -105,7 +105,6 @@ users.each do |user_data|
     last_name: user_data['last_name'],
     age: user_data['age'],
     profile_bio: user_data['profile bio'],
-    #image_url: ,
     email: user_data['email'],
     password: BCrypt::Password.create(user_data['password'])
   )
@@ -124,6 +123,10 @@ brazil = Trip.create!(
   user: susannah
 )
 
+file = URI.open("https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+brazil.photo.attach(io: file, filename: "brazil.png", content_type: "image/png")
+brazil.save
+
 Location.create!(
   country: "Brazil",
   city: "Rio de Janeiro",
@@ -140,6 +143,10 @@ samerica = Trip.create!(
   trip_image: "https://images.unsplash.com/photo-1465513527097-544020a68b06?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   user: sabra
 )
+
+file = URI.open("https://images.unsplash.com/photo-1465513527097-544020a68b06?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+samerica.photo.attach(io: file, filename: "samerica.png", content_type: "image/png")
+samerica.save
 
 Location.create!(
   country: "Brazil",
@@ -167,6 +174,10 @@ america = Trip.create!(
   user: sumitra
 )
 
+file = URI.open("https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+america.photo.attach(io: file, filename: "america.png", content_type: "image/png")
+america.save
+
 Location.create!(
   country: "Brazil",
   city: "Rio de Janeiro",
@@ -184,6 +195,10 @@ sm = Trip.create!(
   user: giulietta
 )
 
+file = URI.open("https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+sm.photo.attach(io: file, filename: "sm.png", content_type: "image/png")
+sm.save
+
 Location.create!(
   country: "Brazil",
   city: "Rio de Janeiro",
@@ -200,6 +215,10 @@ bali = Trip.create!(
   trip_image: "https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   user: robinia
 )
+
+file = URI.open("https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+bali.photo.attach(io: file, filename: "sm.png", content_type: "image/png")
+bali.save
 
 Location.create!(
   country: "Indonesia",

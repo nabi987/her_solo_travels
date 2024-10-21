@@ -1,23 +1,34 @@
-<h1>Friends</h1>
+<div class="container">
+  <h1>Friends</h1>
 
-<div class="col-sm-8 my-3">
-  <%= form_with url: friendships_path, method: :get, class: "d-flex" do %>
-    <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Type a name"
-      %>
-    <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
-  <% end %>
-</div>
-
-<% if @friendships.any? %>
-  <% @friendships.each do |friend| %>
-    <% other_user = friend.requester == current_user ? friend.requestee : friend.requester %>
-      <h5><%= other_user.first_name %> <%= other_user.last_name %></h5>
-      <%= cl_image_tag other_user.photo.key, class:"d-block w-50", alt:"Profile photo"%>
-      <%= link_to "message", friendship_path(friend) %>
+  <div class="col-sm-8 my-3">
+    <%= form_with url: friendships_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a name"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
     <% end %>
-  <% else %>
-    <em>Sorry, no friends found.</em>
-  <% end %>
+  </div>
+
+  <% if @friendships.any? %>
+    <% @friendships.each do |friend| %>
+      <% other_user = friend.requester == current_user ? friend.requestee : friend.requester %>
+
+      <div class="card-friendship" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path other_user.photo.key %>')">
+        <div>
+          <h5><%= other_user.first_name %> <%= other_user.last_name %></h5>
+        </div>
+        <%= link_to friendship_path(friend) do %>
+        <div>
+          <i class="fa-regular fa-comments" style="color: #ed719e;"></i>
+        </div>
+        <% end %>
+      </div>
+      <% end %>
+    <% else %>
+      <em>Sorry, no friends found.</em>
+    <% end %>
+
+</div>
