@@ -21,7 +21,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body data-current-user-id="<%= current_user ? current_user.id : "" %>">
   <% unless request.path == '/' %>
     <%= render "shared/header" %>
   <% end %>
