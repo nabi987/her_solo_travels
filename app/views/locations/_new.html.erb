@@ -2,7 +2,7 @@
    <%= simple_form_for [@trip, @location] do |f| %>
     <div>
       <%= f.label :country, "Country" %>
-      <%= f.country_select :country, input_html: { class: "form-control" }, required: false %>
+      <%= f.country_select :country, label: "Country", input_html: { class: "country-input" }, required: false %>
     </div>
     <div>
       <%= f.input :city, label: "City", input_html: { class: "form-control" }, required: false %>
@@ -19,5 +19,4 @@
     <div>
       <%= f.submit 'Submit', class: "button" %>
     </div>
-   <% end %>
-</div>
+   <% end %></div>

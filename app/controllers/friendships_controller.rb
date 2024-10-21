@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   def index
-    @friendships = Friendship.all
+    @friendships = Friendship.where(status:"accepted")
     if params[:query].present?
       sql_subquery = "users.first_name ILIKE :query OR users.last_name ILIKE :query"
       @friendships = Friendship.joins(:requestee).where(sql_subquery, query: "%#{params[:query]}%")
@@ -23,11 +23,18 @@ class FriendshipsController < ApplicationController
   end
 
   def update
+    @friendship = Friendship.find(params[:id])
+    if @friendship.update(friendship_params)
+      redirect_to profile_path
+    else
+      render :new, status: :unprocessable_entity
+    end
+    @friendship.update(friendship_params)
   end
 
   private
 
   def friendship_params
-    params.require(:friendship).permit(:requestee_id)
+    params.require(:friendship).permit(:requestee_id, :status)
   end
 end

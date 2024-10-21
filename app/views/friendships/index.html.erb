@@ -12,9 +12,10 @@
 </div>
 
 <% if @friendships.any? %>
-    <% @friendships.each do |friend| %>
-      <h5><%= friend.requestee.first_name %> <%= friend.requestee.last_name %></h5>
-      <%= cl_image_tag friend.requestee.photo.key, class:"d-block w-50", alt:"Profile photo"%>
+  <% @friendships.each do |friend| %>
+    <% other_user = friend.requester == current_user ? friend.requestee : friend.requester %>
+      <h5><%= other_user.first_name %> <%= other_user.last_name %></h5>
+      <%= cl_image_tag other_user.photo.key, class:"d-block w-50", alt:"Profile photo"%>
       <%= link_to "message", friendship_path(friend) %>
     <% end %>
   <% else %>

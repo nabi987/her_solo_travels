@@ -1,22 +1,51 @@
 <div class="profile-card">
   <% if @user %>
-  <div class="profile-header">
-    <%= cl_image_tag @user.photo.key, class:"profile-photo", alt:"Profile photo" %>
-    <h4><%= @user.first_name %> <%= @user.last_name %></h4>
-   </div>
-  <div class ="bio">
-    <h5>About me</h5>
-    <%= @user.profile_bio %>
-  </div>
-  <div class="trips">
-    <h5><%= @user.first_name %>'s Trips</h5>
-    <% @user.trips.each do |trip| %>
-      <div class="trip" >
-        <%= link_to "#{trip.name}", trip_path(trip) %>
-      </div>
+    <div class="profile-header">
+      <%= cl_image_tag @user.photo.key, class:"profile-photo", alt:"Profile photo" %>
+      <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+    </div>
+
+    <div class ="bio">
+      <h5>About me</h5>
+      <%= @user.profile_bio %>
+    </div>
+
+    <% if @friendships.any? %>
+      <% @friendships.each do |friendship| %>
+        <% other_user = friendship.requester %>
+        <div class="friend-request">
+          <p>Do you want to accept friend request from <%= other_user.first_name %> <%= other_user.last_name %>?</p>
+          <%= cl_image_tag other_user.photo.key, class:"profile-photo", alt:"Profile photo" %>
+
+          <div class="d-flex justify-content-evenly">
+            <div>
+              <%= simple_form_for friendship do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                <%= f.submit 'Accept', class: 'btn' %>
+              <% end %>
+            </div>
+
+            <div>
+              <%= simple_form_for friendship do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                <%= f.submit 'Reject', class: 'btn' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <% end %>
+
+    <div class="trips">
+      <h5><%= @user.first_name %>'s Trips</h5>
+      <% @user.trips.each do |trip| %>
+        <div class="trip" >
+          <%= link_to "#{trip.name}", trip_path(trip) %>
+        </div>
+      <% end %>
+    <% else %>
+      <p>No user found.</p>
     <% end %>
-  <% else %>
-    <p>No user found.</p>
-  <% end %>
-</div>
+  </div>
+
 </div>
