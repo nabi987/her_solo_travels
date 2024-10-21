@@ -14,20 +14,27 @@
       <% @friendships.each do |friendship| %>
         <% other_user = friendship.requester %>
         <div class="friend-request">
-        <p>Do you want to accept friend request from <%= other_user.first_name %> <%= other_user.last_name %>?</p>
-        <%= cl_image_tag other_user.photo.key, class:"profile-photo", alt:"Profile photo" %>
-        <div class="d-flex justify-content-evenly">
-          <div class="btn">
-            <p>Accept</p>
-          </div>
+          <p>Do you want to accept friend request from <%= other_user.first_name %> <%= other_user.last_name %>?</p>
+          <%= cl_image_tag other_user.photo.key, class:"profile-photo", alt:"Profile photo" %>
 
-          <div class="btn">
-            <p>Reject</p>
+          <div class="d-flex justify-content-evenly">
+            <div>
+              <%= simple_form_for friendship do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+                <%= f.submit 'Accept', class: 'btn' %>
+              <% end %>
+            </div>
+
+            <div>
+              <%= simple_form_for friendship do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+                <%= f.submit 'Reject', class: 'btn' %>
+              <% end %>
+            </div>
           </div>
         </div>
-    </div>
-    <% end %>
-    <% end %>
+        <% end %>
+        <% end %>
 
     <div class="trips">
       <h5><%= @user.first_name %>'s Trips</h5>

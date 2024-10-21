@@ -24,14 +24,12 @@ class FriendshipsController < ApplicationController
 
   def update
     @friendship = Friendship.find(params[:id])
+    if @friendship.update(friendship_params)
+      redirect_to profile_path
+    else
+      render :new, status: :unprocessable_entity
+    end
     @friendship.update(friendship_params)
-    redirect_to profile_path
-  end
-
-  def destroy
-    @friendship = Friendship.find(params[:id])
-    @friendship.destroy
-    redirect_to profile_path, status: :see_other
   end
 
   private
