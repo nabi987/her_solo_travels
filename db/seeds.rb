@@ -1,9 +1,17 @@
 require 'json'
 
 puts "cleaning the db...."
+<<<<<<< HEAD
  Location.destroy_all
  Trip.destroy_all
  User.destroy_all
+=======
+Message.destroy_all
+Friendship.destroy_all
+Location.destroy_all
+Trip.destroy_all
+User.destroy_all
+>>>>>>> master
 puts "database clean!"
 puts "creating users..."
 
@@ -88,6 +96,7 @@ puts "creating users..."
 #   activites: "motorcross",
 #   trip: jungle
 # )
+require "cloudinary"
 require "open-uri"
 # Path to the JSON file
 file_path = Rails.root.join('db', 'seed_data.json')
@@ -105,28 +114,36 @@ users.each do |user_data|
     last_name: user_data['last_name'],
     age: user_data['age'],
     profile_bio: user_data['profile bio'],
+<<<<<<< HEAD
+=======
+    # image_url: ,
+>>>>>>> master
     email: user_data['email'],
     password: BCrypt::Password.create(user_data['password'])
   )
 
-file = URI.parse(user_data['image_url']).open
-user.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
-user.save
-end
+  if user_data['image_url'].present?
+    file = URI.parse(user_data['image_url']).open
+    # uploaded_file = Cloudinary::Uploader.upload(file)
+    user.photo.attach(io: file, filename: "#{user.first_name}_profile.png", content_type: "image/png")
+  end
 
+  user.save
+end
 
 susannah = User.find_by(first_name: "Susannah")
 
 brazil = Trip.create!(
   name: "Brazil 2025",
-  trip_image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   user: susannah
 )
+brazil_image = Cloudinary::Uploader.upload("https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
 
-file = URI.open("https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-brazil.photo.attach(io: file, filename: "brazil.png", content_type: "image/png")
-brazil.save
-
+brazil.photo.attach(
+  io: URI.open(brazil_image['secure_url']),
+  filename: "brazil_trip.png",
+  content_type: brazil_image['format']
+)
 Location.create!(
   country: "Brazil",
   city: "Rio de Janeiro",
@@ -140,14 +157,14 @@ sabra = User.find_by(first_name: "Sabra")
 
 samerica = Trip.create!(
   name: "South America 2025!!",
-  trip_image: "https://images.unsplash.com/photo-1465513527097-544020a68b06?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   user: sabra
 )
-
-file = URI.open("https://images.unsplash.com/photo-1465513527097-544020a68b06?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-samerica.photo.attach(io: file, filename: "samerica.png", content_type: "image/png")
-samerica.save
-
+samerica_image = Cloudinary::Uploader.upload("https://images.unsplash.com/photo-1465513527097-544020a68b06?q=80&w=2048&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+samerica.photo.attach(
+  io: URI.open(samerica_image['secure_url']),
+  filename: "samerica_trip.png",
+  content_type: samerica_image['format']
+)
 Location.create!(
   country: "Brazil",
   city: "Rio de Janeiro",
@@ -170,14 +187,14 @@ sumitra = User.find_by(first_name: "Sumitra")
 
 america = Trip.create!(
   name: "Americas 2025",
-  trip_image: "https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   user: sumitra
 )
-
-file = URI.open("https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-america.photo.attach(io: file, filename: "america.png", content_type: "image/png")
-america.save
-
+america_image = Cloudinary::Uploader.upload("https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+america.photo.attach(
+  io: URI.open(america_image['secure_url']),
+  filename: "america_trip.png",
+  content_type: america_image['format']
+)
 Location.create!(
   country: "Brazil",
   city: "Rio de Janeiro",
@@ -191,14 +208,15 @@ giulietta = User.find_by(first_name: "Giulietta")
 
 sm = Trip.create!(
   name: "South America'25",
-  trip_image: "https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   user: giulietta
 )
 
-file = URI.open("https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-sm.photo.attach(io: file, filename: "sm.png", content_type: "image/png")
-sm.save
-
+sm_image = Cloudinary::Uploader.upload("https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+sm.photo.attach(
+  io: URI.open(sm_image['secure_url']),
+  filename: "sm_trip.png",
+  content_type: sm_image['format']
+)
 Location.create!(
   country: "Brazil",
   city: "Rio de Janeiro",
@@ -212,13 +230,15 @@ robinia = User.find_by(first_name: "Robinia")
 
 bali = Trip.create!(
   name: "Indonesia",
-  trip_image: "https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   user: robinia
 )
 
-file = URI.open("https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-bali.photo.attach(io: file, filename: "sm.png", content_type: "image/png")
-bali.save
+bali_image = Cloudinary::Uploader.upload("https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+bali.photo.attach(
+  io: URI.open(bali_image['secure_url']),
+  filename: "bali_trip.png",
+  content_type: bali_image['format']
+)
 
 Location.create!(
   country: "Indonesia",
@@ -228,3 +248,4 @@ Location.create!(
   activites: "Surfing and temples",
   trip: bali
 )
+puts "finished!"
