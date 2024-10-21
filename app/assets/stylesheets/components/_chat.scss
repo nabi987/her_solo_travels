@@ -7,9 +7,12 @@ padding-top: 10px;
 padding-right: 10px;
 }
 
-.messages{
-  padding-bottom: 50px
+.message_div{
+overflow: scroll;
+width: 100%;
+height: calc(100vh - 265px);
 }
+
 .message {
     display: flex;
     flex-direction: column;
@@ -43,7 +46,7 @@ padding-right: 10px;
     background: $gray-200;
   }
   .send_div{
-    position: fixed;
+    position: static  ;
     bottom: 50px;
     background-color: aliceblue;
   }
