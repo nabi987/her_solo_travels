@@ -5,5 +5,6 @@ class PagesController < ApplicationController
   end
 
   def home
+    @friends_trips = current_user.friends.flat_map(&:trips)
   end
 end
