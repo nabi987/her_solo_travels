@@ -20,8 +20,15 @@
   <% end %>
   </div>
   <div class="footer-btn">
-  <%= link_to "#" do %>
-    <i class="fa-solid fa-gear" style="color: #ffffff;"></i>
-  <% end %>
+    <div class="btn-group dropup">
+      <span class="dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <i class="fa-solid fa-gear" style="color: #ffffff;"></i>
+      </span>
+      <div class="dropdown-menu">
+        <% if user_signed_in? %>
+          <%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete} %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
