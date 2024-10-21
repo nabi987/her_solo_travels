@@ -1,4 +1,29 @@
 <div class="container">
-  <h1>Home</h1>
-  <p>Sorry, this page is currently under maintenance! It will be back live at 7:00pm.</p>
+  <% @friends_trips.each do |trip| %>
+    <a href="<%= trip_path(trip) %>" class="friend-card">
+      <div class="friend-trip-img">
+        <%= cl_image_tag trip.photo.key %>
+      </div>
+
+      <% friend = trip.user %>
+      <div class="friend-details">
+        <h6 class="trip-name"><i class="fa-solid fa-user" style="color: #ed719e;"></i><%= friend.first_name %>'s Trip</h6>
+        <div class="trip-name-dates">
+          <% trip.locations.each do |location| %>
+            <div class="trip-dates">
+              <i class="fa-solid fa-calendar-days" style="color: #ed719e;"></i>
+              <span> <%= location.start_date.strftime("%d %B %Y") %> to <%= location.end_date.strftime("%d %B %Y") %></span>
+            </div>
+            <div class="trip-location">
+              <i class="fa-solid fa-location-dot" style="color: #ed719e;"></i>
+              <span><%= location.city %> - <%= trip.name %></span>
+            </div>
+          <% end %>
+        </div>
+        <div class="chat-icon">
+          <i class="fa-regular fa-comments" style="color: #ed719e;"></i>
+        </div>
+      </div>
+    </a>
+  <% end %>
 </div>
