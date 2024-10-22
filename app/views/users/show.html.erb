@@ -1,18 +1,23 @@
-<div>
-    <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+<div class="profile-card">
+
+  <div class="card-friendship" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.photo.key %>')">
+    <h5><%= @user.first_name %> <%= @user.last_name %></h5>
+  </div>
+
 
     <% if @is_friend&.status == "pending" %>
       Friend request sent
     <% elsif @is_friend&.status == "accepted" %>
-      You are friends
     <% else %>
-      <%= simple_form_for @friendship do |f| %>
+    <%= simple_form_for @friendship do |f| %>
         <%= f.input :requestee_id, label:false, input_html:{value: @user.id, class:"d-none"} %>
         <%= f.submit "Add", class: "btn btn-warning" %>
       <% end %>
-
     <% end %>
-    <%= cl_image_tag @user.photo.key, class:"d-block w-50", alt:"Profile photo" %>
+
+
+
+
     <div>
       <h5>Bio</h5>
       <%= @user.profile_bio %>
@@ -24,5 +29,6 @@
         <%= trip.name %>
       <% end %>
     </div>
-  <% end %>
+    <% end %>
+
 </div>
