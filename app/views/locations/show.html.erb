@@ -1,22 +1,18 @@
 <div class="container">
-  <h1>Users going to <%= @location.city %></h1>
+  <h1>Travellers going to <%= @location.city %></h1>
   <% @locations.each do |location| %>
   <div class="location-user-cards">
-      <div class="location-user-card">
-        <div>
-          <%= link_to user_path(location.trip.user) do %>
-        <div class="card-image">
-          <%= cl_image_tag location.trip.user.photo.key %>
-        </div>
-
-        <div>
+      <%= link_to user_path(location.trip.user)  do %>
+      <div class="location-user-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),  url('<%= cl_image_path location.trip.user.photo.key, crop: :fill, gravity: :face %>')">
+        <div class="user-info">
           <p><%= location.trip.user.first_name %></p>
-          <p>From <%= location.start_date.strftime("%d %B %Y") %> to <%= location.end_date.strftime("%d %B %Y") %></p>
-          <p>Activities planned: <%= location.activites %></p>
-        </div>
-        </div>
-        <% end %>
+          </div>
+          <div class="trip-info">
+            <p> <i class="fa-solid fa-calendar-days" style="color: #ed719e;"></i> <%= location.start_date.strftime("%d %B %Y") %> - <%= location.end_date.strftime("%d %B %Y") %></p>
+            <p> <i class="fa-regular fa-clipboard" style="color: #ed719e;"></i> <%= location.activites %></p>
+          </div>
       </div>
-    </div>
-    <% end %>
+  <% end %>
+</div>
+<% end %>
 </div>
