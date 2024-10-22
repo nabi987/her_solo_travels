@@ -4,15 +4,15 @@
     <h5><%= @user.first_name %> <%= @user.last_name %></h5>
   </div>
 
-    <%= simple_form_for @friendship do |f| %>
-        <%= f.input :requestee_id, label:false, input_html:{value: @user.id, class:"d-none"} %>
-        <%= f.submit "Add", class: "btn btn-warning" %>
-      <% end %>
 
     <% if @is_friend&.status == "pending" %>
       Friend request sent
     <% elsif @is_friend&.status == "accepted" %>
     <% else %>
+    <%= simple_form_for @friendship do |f| %>
+        <%= f.input :requestee_id, label:false, input_html:{value: @user.id, class:"d-none"} %>
+        <%= f.submit "Add", class: "btn btn-warning" %>
+      <% end %>
     <% end %>
 
 
