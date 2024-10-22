@@ -1,66 +1,83 @@
 .friend-card{
   width: 350px;
   height: 450px;
-  display: flex;
-  flex-direction: column;
   margin: 10px auto;
   margin-bottom: 20px;
   border-radius: 8px;
   overflow: hidden;
-  transition: box-shadow 0.3s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
+.home-avatar{
+  object-fit: cover !important;
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50% !important;
+  border: 1px solid #ed719e !important;
+  position: relative !important;
+  top: 10px !important;
+  left: 10px !important;
+
+  img{
+    vertical-align: middle;
+  }
 
 }
-.friend-card:hover{
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
 
-}
 .friend-trip-img{
   width: 100%;
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  flex-direction:center;
-  align-items: center;
-  padding: 0;
-  border-radius: 3px;
+  height: 400px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
 
-}
-
-.friend-trip-img img{
+  img{
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-radius: 5;
+}
 }
 
-.friend-details{
-  color: black;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-}
+.overlay{
+  position: absolute;
+  width: 100%;
+  padding: 20px;
+  bottom: 0;
+  left: 0;
 
-.trip-name{
-  font-weight:bold;
-  margin-bottom: 5px;
-}
+  .friend-details{
+    color: rgb(255, 255, 255);
+    padding: 10px;
+  }
 
-.trip-name-dates{
-  display: flex;
-  flex-direction: column;
-}
+  .trip-name{
+    font-weight:bold;
+    margin-bottom: 5px;
+    color: white;
+    display: flex;
+    font-size: 23px;
+  }
 
-.trip-dates, .trip-location{
-  display: flex;
-  align-items: center;
-  margin: 5px 0;
-}
 
-.friend-details i, .trip-dates i, .trip-location i,.chat-icon i{
-  margin-right: 8px;
-}
+  .trip-dates, .trip-location{
+    color: white;
+    margin: 5px 0;
+  }
 
-h3{
-  text-align: center;
+  .friend-details i, .trip-dates i, .trip-location i,.chat-icon i{
+    margin-right: 8px;
+  }
+
+  h3{
+    text-align: center;
+  }
+
+  .fa-comments{
+    border: 1px solid #ed719e;
+    border-radius: 50%;
+    padding: 7px;
+
+  }
+
 }
