@@ -15,16 +15,17 @@
   <% if @friendships.any? %>
     <% @friendships.each do |friend| %>
       <% other_user = friend.requester == current_user ? friend.requestee : friend.requester %>
-
-      <div class="card-friendship" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path other_user.photo.key %>')">
-        <div>
-          <h5><%= other_user.first_name %> <%= other_user.last_name %></h5>
+      <div class="cards-friendship">
+        <div class="card-friendship" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path other_user.photo.key, crop: :fill, gravity: :face %>')">
+          <div>
+            <h5><%= link_to "#{other_user.first_name} #{other_user.last_name}", user_path(other_user) %></h5>
+          </div>
+          <%= link_to friendship_path(friend) do %>
+          <div>
+            <i class="fa-regular fa-comments" style="color: #fffff;"></i>
+          </div>
+          <% end %>
         </div>
-        <%= link_to friendship_path(friend) do %>
-        <div>
-          <i class="fa-regular fa-comments" style="color: #ed719e;"></i>
-        </div>
-        <% end %>
       </div>
       <% end %>
     <% else %>
