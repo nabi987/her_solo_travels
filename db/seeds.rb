@@ -108,7 +108,6 @@ users.each do |user_data|
     last_name: user_data['last_name'],
     age: user_data['age'],
     profile_bio: user_data['profile bio'],
-    # image_url: ,
     email: user_data['email'],
     password: BCrypt::Password.create(user_data['password'])
   )

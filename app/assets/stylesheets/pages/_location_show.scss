@@ -1,16 +1,27 @@
 .location-user-cards{
-  display: flex;
+  display: inline-block;
+  width:49%;
+  justify-content: space-between;
+  gap: 20px;
 }
 
+
 .location-user-card{
-  overflow: hidden;
-  background-color: white;
-  margin: 16px;
-  border-radius: 10px;
-  width: 500px;
-  max-width: 100%;
-  transition: box-shadow 0.2s ease ;
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding: 10px;
+  margin: 10px;
+
 }
 
 .card-image img {
@@ -37,4 +48,14 @@ a{
 
 .location-user-card:hover {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.trip-info{
+  margin-top: auto;
+  font-size: 10px;
+}
+
+.trip-info p{
+  margin: 0;
+  color: white;
 }
