@@ -1,34 +1,35 @@
 <div class="container">
   <div class="friend-details">
     <% @friends_trips.each do |trip| %>
-
       <a href="<%= trip_path(trip) %>">
         <div class="friend-trip-img"   style="background-image: linear-gradient(to bottom, rgba(129 120 120 / 0%), rgba(0 0 0 / 63%)), url('<%= cl_image_path trip.photo.key %>')">
           <%= link_to user_path (trip.user) do %>
              <%=cl_image_tag trip.user.photo.key, class:"home-avatar"%>
           <% end %>
           <div class="overlay">
-          <h6 class="trip-name"><%= trip.user.first_name %>'s Trip</h6>
-          <div class="trip-name-dates">
-            <% trip.locations.each do |location| %>
-              <div class="trip-dates">
-                <i class="fa-solid fa-calendar-days" style="color: #ed719e;"></i>
-                <span> <%= location.start_date.strftime("%d %B %Y") %> to <%= location.end_date.strftime("%d %B %Y") %></span>
-              </div>
-              <div class="trip-location">
-                <i class="fa-solid fa-location-dot" style="color: #ed719e;"></i>
-                <span><%= location.city %> - <%= trip.name %></span>
-              </div>
-            <% end %>
-          </div>
-          <div>  <%= link_to friendship_path(Friendship.find_by(requestee: current_user, requester: trip.user) || Friendship.find_by(
-          requestee: trip.user, requester: current_user)) do %>
-            <i class="fa-regular fa-comments" style="color: #ed719e;"></i>
-            <% end %>
+            <h6 class="trip-name"><%= trip.user.first_name %>'s Trip</h6>
+            <div class="trip-name-dates">
+              <% trip.locations.each do |location| %>
+                <div class="trip-dates">
+                  <i class="fa-solid fa-calendar-days" style="color: #ed719e;"></i>
+                  <span> <%= location.start_date.strftime("%d %B %Y") %> to <%= location.end_date.strftime("%d %B %Y") %></span>
+                </div>
+                <div class="trip-location">
+                  <i class="fa-solid fa-location-dot" style="color: #ed719e;"></i>
+                  <span><%= location.city %> - <%= trip.name %></span>
+                </div>
+              <% end %>
+            </div>
+
+            <div>
+              <%= link_to friendship_path(Friendship.find_by(requestee: current_user, requester: trip.user) || Friendship.find_by(
+              requestee: trip.user, requester: current_user)) do %>
+              <i class="fa-regular fa-comments" style="color: #ed719e;"></i>
+              <% end %>
+            </div>
           </div>
         </div>
-        </div>
-      </div>
       </a>
+  </div>
     <% end %>
 </div>
