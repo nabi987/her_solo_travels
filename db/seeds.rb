@@ -1,17 +1,11 @@
 require 'json'
 
 puts "cleaning the db...."
-<<<<<<< HEAD
- Location.destroy_all
- Trip.destroy_all
- User.destroy_all
-=======
 Message.destroy_all
 Friendship.destroy_all
 Location.destroy_all
 Trip.destroy_all
 User.destroy_all
->>>>>>> master
 puts "database clean!"
 puts "creating users..."
 
@@ -114,10 +108,7 @@ users.each do |user_data|
     last_name: user_data['last_name'],
     age: user_data['age'],
     profile_bio: user_data['profile bio'],
-<<<<<<< HEAD
-=======
     # image_url: ,
->>>>>>> master
     email: user_data['email'],
     password: BCrypt::Password.create(user_data['password'])
   )
