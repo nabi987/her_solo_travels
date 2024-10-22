@@ -15,6 +15,11 @@
 @import "pages/location_show";
 @import "pages/landing";
 @import "pages/home";
+/*
+ *= require_self
+ *= require sweetalert
+ *= require_tree .
+ */
 
 body {
   padding-bottom: 55px;
