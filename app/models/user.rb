@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :received_friendships, class_name: 'Friendship', foreign_key: 'requestee_id', dependent: :destroy
 
   # Optional: Get all friends (users connected by friendships)
-  has_many :friends, through: :sent_friendships, source: :requestee
+  has_many :friends, -> { where(friendships: { status: :accepted }) }, through: :sent_friendships, source: :requestee
   has_many :friendships
   has_many :trips
   has_many :locations, through: :trips
