@@ -30,10 +30,9 @@ gem "tzinfo-data", platforms: %i[ mswin mswin64 mingw x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
-
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
-
+gem "solid_cable"
 gem "bootstrap", "~> 5.2"
 gem "devise"
 gem "autoprefixer-rails"
@@ -41,7 +40,8 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "cloudinary"
-gem "country_select"
+gem "country_select", "~> 1.0"
+gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem "dotenv-rails"

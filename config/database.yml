@@ -78,6 +78,20 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: her_solo_travels_development
+
+test:
+  <<: *default
+  database: her_solo_travels_test
+
 production:
   <<: *default
   database: her_solo_travels_production

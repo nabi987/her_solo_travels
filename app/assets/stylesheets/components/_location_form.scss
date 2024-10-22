@@ -1,0 +1,36 @@
+
+.locations-form{
+  max-width:600px;
+  margin-top: 35px;
+  padding: 16px;
+  background-color: #ECCBAA;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+.locations-form div{
+  margin-bottom: 15px;
+}
+
+.form-control{
+  padding: 10px;
+}
+
+.button{
+  color: black;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  background-color: #F8D1C1;
+  transition: background-color 0.3s;
+}
+
+
+.button:hover {
+  background-color: #F5A3A3;
+}
+
+.country-input {
+  width: 100px;
+  color: red;
+}

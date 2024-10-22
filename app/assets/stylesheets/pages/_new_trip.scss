@@ -1,0 +1,32 @@
+.box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 57vh;
+}
+
+.trip-form{
+  max-width: 800px;
+  padding: 100px;
+  background-color: #ECCBAA;
+  border-radius: 10px;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
+
+}
+
+.btn {
+  background-color: #F8D1C1;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #F5A3A3;
+}
+
+h1{
+  text-align: center;
+}
+
+.input{
+  border-radius: 15px;
+}

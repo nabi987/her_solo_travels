@@ -1,0 +1,33 @@
+.header {
+  height: 50px;
+  background: #eccbaa;
+  display: flex;
+  padding-left: 10px;
+  width: 100%;
+}
+
+.logo {
+  flex: 1;
+}
+
+.logo-button img {
+  height: 50px;
+}
+
+.header-btns {
+  display: flex;
+  gap: 15px;
+  margin-left: auto;
+}
+
+.header-btn {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  background-color: #eccbaa;
+  font-size: 12px;
+}
+
+.header-btn:hover {
+  background-color: #e1c299;
+}

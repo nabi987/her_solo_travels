@@ -1,8 +1,22 @@
-<h1>Users going to <%= @location.city %></h1>
-<br>
-<% @locations.each do |location|  %>
-  <%= image_tag location.trip.user.image_url, width:60, height:60, crop: :fill %>
-  <p><%= location.trip.user.first_name %></p>
-  <p>from <%= location.start_date.strftime("%A %B %d") %> to <%= location.end_date.strftime("%A %B %d") %></p>
-  <hr>
-<% end %>
+<div class="container">
+  <h1>Users going to <%= @location.city %></h1>
+  <% @locations.each do |location| %>
+  <div class="location-user-cards">
+      <div class="location-user-card">
+        <div>
+          <%= link_to user_path(location.trip.user) do %>
+        <div class="card-image">
+          <%= cl_image_tag location.trip.user.photo.key %>
+        </div>
+
+        <div>
+          <p><%= location.trip.user.first_name %></p>
+          <p>From <%= location.start_date.strftime("%d %B %Y") %> to <%= location.end_date.strftime("%d %B %Y") %></p>
+          <p>Activities planned: <%= location.activites %></p>
+        </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+</div>

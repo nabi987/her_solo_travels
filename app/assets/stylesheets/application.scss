@@ -10,3 +10,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "pages/users";
+@import "pages/new_trip";
+@import "pages/location_show";
+@import "pages/landing";
+@import "pages/home";
+
+body {
+  padding-bottom: 55px;
+}
