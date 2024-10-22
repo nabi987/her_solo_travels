@@ -40,7 +40,7 @@ gem "font-awesome-sass", "~> 6.1"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "sassc-rails"
 gem "cloudinary"
-gem "country_select", "~> 1.0"
+gem 'country_select', '~> 8.0'
 gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
