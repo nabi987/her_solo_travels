@@ -1,15 +1,10 @@
 <div class="container">
-
-
-
   <div class="friend-details">
     <% @friends_trips.each do |trip| %>
       <a href="<%= trip_path(trip) %>" class="friend-card">
         <div class="friend-trip-img">
           <%= cl_image_tag trip.photo.key %>
         </div>
-
-
           <h6 class="trip-name"><i class="fa-solid fa-user" style="color: #ed719e;"></i><%= trip.user.first_name %>'s Trip</h6>
           <div class="trip-name-dates">
             <% trip.locations.each do |location| %>
