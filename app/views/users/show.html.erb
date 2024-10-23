@@ -1,6 +1,6 @@
-<div>
-    <h4><%= @user.first_name %> <%= @user.last_name %></h4>
-
+<div class = "container">
+  <h4 class = "text-center"><%= @user.first_name %> <%= @user.last_name %></h4>
+  <div class = "friend-request-button">
     <% if @is_friend&.status == "pending" %>
       Friend request sent
     <% elsif @is_friend&.status == "accepted" %>
@@ -10,19 +10,29 @@
         <%= f.input :requestee_id, label:false, input_html:{value: @user.id, class:"d-none"} %>
         <%= f.submit "Add", class: "btn btn-warning" %>
       <% end %>
-
     <% end %>
-    <%= cl_image_tag @user.photo.key, class:"d-block w-50", alt:"Profile photo" %>
-    <div>
-      <h5>Bio</h5>
+    </div>
+
+    <div class = "user-show-img">
+        <%= cl_image_tag @user.photo.key, class:"d-block w-50", alt:"Profile photo" %>
+    </div>
+
+    <div class ="about-user">
+      <h5>About <%= @user.first_name %></h5>
       <%= @user.profile_bio %>
-    </div>
     <% if @is_friend&.status == "accepted" %>
-    <div>
-      <h5>Trips</h5>
-      <% @user.trips.each do |trip| %>
-        <%= trip.name %>
-      <% end %>
     </div>
+    <div class ="user-bio-trips">
+      <h5><%= @user.first_name %>'s Trips</h5>
+      <% if @user.trips.any? %>
+      <ul>
+      <% @user.trips.each do |trip| %>
+        <li><%= trip.name %></li>
+      <% end %>
+      </ul>
+      <% else %>
+      <p>No trips planned.</p>
+      <% end %>
   <% end %>
+    </div>
 </div>
