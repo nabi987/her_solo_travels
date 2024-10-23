@@ -1,28 +1,8 @@
 <div class="profile-card">
-<<<<<<< HEAD
-
-        <div>
-          <h5><%= @user.first_name %> <%= @user.last_name %></h5>
-        </div>
-
-
-    <%# <div class="card-friendship" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_tag @user.photo.key %>
-
-
-      <div class="card-friendship" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.photo.key %>')">
-
-
-      </div>
-
-    <div class ="bio">
-      <h5>About me</h5>
-      <%= @user.profile_bio %>
-=======
-  <div class="card-profile" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.0)), url('<%= cl_image_path @user.photo.key %>')">
     <div>
       <h5><%= @user.first_name %> <%= @user.last_name %></h5>
->>>>>>> master
     </div>
+  <div class="card-profile" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.0)), url('<%= cl_image_path @user.photo.key %>')">
   </div>
 
   <% if @friendships.any? %>
