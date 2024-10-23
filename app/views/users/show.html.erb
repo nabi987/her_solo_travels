@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class = "container">
   <h4 class = "text-center"><%= @user.first_name %> <%= @user.last_name %></h4>
   <div class = "friend-request-button">
@@ -5,12 +6,25 @@
       Friend request sent
     <% elsif @is_friend&.status == "accepted" %>
 
+=======
+<div class="profile-card">
+
+  <div class="card-friendship" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.photo.key %>')">
+    <h5><%= @user.first_name %> <%= @user.last_name %></h5>
+  </div>
+
+
+    <% if @is_friend&.status == "pending" %>
+      Friend request sent
+    <% elsif @is_friend&.status == "accepted" %>
+>>>>>>> master
     <% else %>
-      <%= simple_form_for @friendship do |f| %>
+    <%= simple_form_for @friendship do |f| %>
         <%= f.input :requestee_id, label:false, input_html:{value: @user.id, class:"d-none"} %>
         <%= f.submit "Add", class: "btn btn-warning" %>
       <% end %>
     <% end %>
+<<<<<<< HEAD
     </div>
 
     <div class = "user-show-img">
@@ -19,9 +33,18 @@
 
     <div class ="about-user">
       <h5>About <%= @user.first_name %></h5>
+=======
+
+
+
+
+    <div>
+      <h5>Bio</h5>
+>>>>>>> master
       <%= @user.profile_bio %>
     <% if @is_friend&.status == "accepted" %>
     </div>
+<<<<<<< HEAD
     <div class ="user-bio-trips">
       <h5><%= @user.first_name %>'s Trips</h5>
       <% if @user.trips.any? %>
@@ -35,4 +58,8 @@
       <% end %>
   <% end %>
     </div>
+=======
+    <% end %>
+
+>>>>>>> master
 </div>
