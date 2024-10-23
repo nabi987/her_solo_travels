@@ -1,11 +1,13 @@
 <div class="home-container">
+  <div class="greeting">
   <h5>Hello <%= @user.first_name %> 👋 </h5>
+  <hr style="width: 100px; border: 1px solid #d4af37; margin: 20px auto;">
+  </div>
+
   <div class="friend-details">
     <% @friends_trips.each do |trip| %>
       <a href="<%= trip_path(trip) %>">
         <div class="friend-trip-img"   style="background-image: linear-gradient(to bottom, rgba(129 120 120 / 0%), rgba(0 0 0 / 63%)), url('<%= cl_image_path trip.photo.key %>')">
-
-
 
             <div class="post-banner">
               <%= link_to user_path (trip.user) do %>
@@ -17,8 +19,6 @@
               <i id="home-comment" class="fa-regular fa-comments" style="color: #ffffff;"></i>
               <% end %>
             </div>
-
-
 
           <div class="overlay">
             <h6 class="trip-name"><%= trip.user.first_name %>'s Trip</h6>
@@ -35,9 +35,6 @@
               <% end %>
             </div>
           </div>
-
-
-
 
         </div>
       </a>
