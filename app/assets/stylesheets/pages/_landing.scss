@@ -1,10 +1,12 @@
-// Specific CSS for your home-page
 .landing{
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  height: 100vh;
   justify-content: center;
   align-items: center;
+  background-size: contain;
+  background-position: center;
+  background-repeat: repeat;
 }
 .landing h1{
   height: 150vh;
@@ -19,6 +21,7 @@
   justify-content: center;
   align-items: center;
   font-family: "Fira Sans", sans-serif;
+  color: white;
 }
 .landing-buttons{
   display: flex;
@@ -34,4 +37,12 @@
   padding: 10px 20px;
   justify-content: center;
   text-align: center;
+  margin-bottom: 20px;
 }
+
+@media only screen and (max-width: 560px) {
+  .landing {
+    background-size: cover;
+    background-position: center;
+  }
+  }

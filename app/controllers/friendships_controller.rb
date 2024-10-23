@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   def index
-    @friendships = Friendship.where(status:"accepted")
+    @friendships = Friendship.where(status:"accepted", requestee: current_user) + Friendship.where(status:"accepted", requester: current_user)
     if params[:query].present?
       sql_subquery = "users.first_name ILIKE :query OR users.last_name ILIKE :query"
       @friendships = Friendship.joins(:requestee).where(sql_subquery, query: "%#{params[:query]}%")
