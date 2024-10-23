@@ -1,14 +1,13 @@
 <div class = "container">
-  <div class = "friend-request-button">
-      <% if @is_friend&.status == "pending" %>
-        Friend request sent
-      <% elsif @is_friend&.status == "accepted" %>
-      </div>
   <div class="profile-card">
+<<<<<<< HEAD
+=======
+    <div class="card-profile" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0)), url('<%= cl_image_path @user.photo.key %>')">
+>>>>>>> master
       <h5><%= @user.first_name %> <%= @user.last_name %></h5>
     <div class="card-friendship" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.photo.key %>')">
     </div>
-
+    <div class = "friend-request-button">
       <% if @is_friend&.status == "pending" %>
         Friend request sent
       <% elsif @is_friend&.status == "accepted" %>
@@ -19,27 +18,26 @@
         <% end %>
       <% end %>
       </div>
-
-      <div class ="about-user">
-        <h5>About <%= @user.first_name %></h5>
-        <%= @user.profile_bio %>
-      <% if @is_friend&.status == "accepted" %>
-      </div>
-
-      <div class ="user-bio-trips">
-        <h5><%= @user.first_name %>'s Trips</h5>
-        <% if @user.trips.any? %>
-        <ul>
-        <% @user.trips.each do |trip| %>
-          <li><%= trip.name %></li>
-        <% end %>
-        </ul>
-        <% else %>
-        <p>No trips planned.</p>
-        <% end %>
-    <% end %>
-      </div>
-
-      <% end %>
-
   </div>
+
+  <div class ="about-user">
+    <h5>About <%= @user.first_name %></h5>
+    <%= @user.profile_bio %>
+    <% if @is_friend&.status == "accepted" %>
+  </div>
+
+  <div class ="user-bio-trips">
+    <h5><%= @user.first_name %>'s Trips</h5>
+    <% if @user.trips.any? %>
+    <ul>
+    <% @user.trips.each do |trip| %>
+      <li><%= trip.name %></li>
+    <% end %>
+    </ul>
+    <% else %>
+      <p>No trips planned.</p>
+    <% end %>
+    <% end %>
+  </div>
+
+</div>
