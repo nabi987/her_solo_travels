@@ -1,4 +1,5 @@
 <div class="home-container">
+  <h5>Hello <%= @user.first_name %> 👋 </h5>
   <div class="friend-details">
     <% @friends_trips.each do |trip| %>
       <a href="<%= trip_path(trip) %>">
@@ -24,11 +25,11 @@
             <div class="trip-name-dates">
               <% trip.locations.each do |location| %>
                 <div class="trip-dates">
-                  <i class="fa-solid fa-calendar-days" style="color: #ed719e;"></i>
+                  <i class="fa-solid fa-calendar-days" style="color: #ffffff;"></i>
                   <span> <%= location.start_date.strftime("%d %B %Y") %> to <%= location.end_date.strftime("%d %B %Y") %></span>
                 </div>
                 <div class="trip-location">
-                  <i class="fa-solid fa-location-dot" style="color: #ed719e;"></i>
+                  <i class="fa-solid fa-location-dot" style="color: #ffffff;"></i>
                   <span><%= location.city %> - <%= trip.name %></span>
                 </div>
               <% end %>
