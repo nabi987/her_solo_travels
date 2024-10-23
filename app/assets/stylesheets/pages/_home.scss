@@ -12,9 +12,9 @@
   width: 38px !important;
   height: 38px !important;
   border-radius: 50% !important;
-  padding: 3px;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.222);
-
+  box-shadow: 4px 5px 5px rgba(35, 34, 34, 0.4);
+  margin: 5px;
+  margin-right: 15px;
 
   img{
     vertical-align: middle;
@@ -36,10 +36,6 @@
   object-fit: cover;
   border-radius: 5;
 }
-}
-
-.home-container {
-padding-top: 10px;
 }
 
 .overlay{
@@ -80,16 +76,23 @@ padding-top: 10px;
 }
 #home-comment{
     border-radius: 50%;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.222);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
     align-items: center;
     justify-content: center;
     padding: 3px;
-    font-size: 26px;
+    font-size: 30px;
     margin-top: 2px;
 
   }
  .post-banner{
-    background-color: #eccbaab8;
     display: flex;
-    margin-top: 8px;
   }
+
+.home-container{
+  h5{
+    font-weight: 500;
+    text-align: center;
+    padding-top: 8px;
+    font-family: Piazzolla;
+  }
+}
