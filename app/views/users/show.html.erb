@@ -4,7 +4,7 @@
     <% if @is_friend&.status == "pending" %>
       Friend request sent
     <% elsif @is_friend&.status == "accepted" %>
-      You are friends
+
     <% else %>
       <%= simple_form_for @friendship do |f| %>
         <%= f.input :requestee_id, label:false, input_html:{value: @user.id, class:"d-none"} %>
