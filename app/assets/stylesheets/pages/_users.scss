@@ -85,20 +85,27 @@ h4{
 
 
 .about-user{
-  margin-bottom: 20px;
-  background-color: white;
-  padding: 40px;
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 20px;
   border-radius: 10px;
   text-align: center;
-  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-bottom: 10px;
 }
 
 .user-bio-trips{
-  margin-bottom: 20px;
-  background-color: white;
-  padding: 40px;
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 20px;
   border-radius: 10px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin-bottom: 10px;
 
 }
 
