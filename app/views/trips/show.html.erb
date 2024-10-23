@@ -1,16 +1,16 @@
 <div class="container">
   <div class="trips-heading">
-    <h1>Add a new location to <%=@trip.name %></h1>
+    <h1><%=@trip.name %></h1>
   </div>
   <div class="box">
       <div class="location-cards">
         <%@trip.locations.each do |location|  %>
         <div class="card">
           <%= link_to location_path(location) do %>
-            <h2><%= location.city %>,<%= location.country %> </h2>
+            <h2><%= location.city %>, <%= location.country %> </h2>
             <p>Activities: <%= location.activites %> </p>
-            <p>Start Date: <%= location.start_date %> </p>
-            <p>End Date: <%= location.end_date %> </p>
+            <p><%= location.start_date.strftime("%d %B %y") %>
+            -<%= location.end_date.strftime("%d %B %y") %> </p>
           <% end %>
           </div>
         <% end %>
