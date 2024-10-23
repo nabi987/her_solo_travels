@@ -24,6 +24,7 @@ height: calc(100vh - 265px);
     opacity: 0.5;
     text-align: center;
     width: fit-content;
+    align-self: center;
   }
 
   .message-content {
@@ -36,13 +37,13 @@ height: calc(100vh - 265px);
   }
 
   .message.sent .message-content {
-    align-self: flex-start;
+    align-self: flex-end;
     background: $blue;
     color: $light-gray;
   }
 
   .message.received .message-content {
-    align-self: flex-end;
+    align-self: flex-start;
     background: $gray-200;
   }
   .send_div{
