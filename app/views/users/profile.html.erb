@@ -37,10 +37,13 @@
   </div>
 
   <div class="trips">
-    <h5><%= @user.first_name %>'s Trips</h5>
+    <h5> My Trips</h5>
+    <hr style="border: 1px solid #f8d1c1;">
     <% @user.trips.each do |trip| %>
       <div class="trip" >
         <%= link_to "#{trip.name}", trip_path(trip) %>
+        <i class="fa-solid fa-chevron-right" style="color: #f8d1c1;"></i>
+        <hr style="border: 1px solid #f8d1c1;">
       </div>
     <% end %>
   </div>
