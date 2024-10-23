@@ -1,58 +1,48 @@
 <div class="profile-card">
-
-
-
-
-    <%# <div class="card-friendship" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_tag @user.photo.key %>
-
-
-      <div class="card-friendship" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @user.photo.key %>')">
-        <div>
-          <h5><%= @user.first_name %> <%= @user.last_name %></h5>
-        </div>
-
-      </div>
-
-    <div class ="bio">
-      <h5>About me</h5>
-      <%= @user.profile_bio %>
+  <div class="card-profile" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.0)), url('<%= cl_image_path @user.photo.key %>')">
+    <div>
+      <h5><%= @user.first_name %> <%= @user.last_name %></h5>
     </div>
+  </div>
 
-    <% if @friendships.any? %>
-      <% @friendships.each do |friendship| %>
-        <% other_user = friendship.requester %>
-          <div class="friend-request">
-            <p>Do you want to accept friend request from <%= other_user.first_name %> <%= other_user.last_name %>?</p>
-            <%= cl_image_tag other_user.photo.key, class:"profile-photo", alt:"Profile photo" %>
+  <% if @friendships.any? %>
+    <% @friendships.each do |friendship| %>
+      <% other_user = friendship.requester %>
+      <div class="friend-request">
+        <p>Do you want to accept friend request from <%= other_user.first_name %> <%= other_user.last_name %>?</p>
+        <%= cl_image_tag other_user.photo.key, class:"friend-photo", alt:"Profile photo" %>
 
-            <div class="d-flex justify-content-evenly">
-              <div>
-                <%= simple_form_for friendship do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
-                  <%= f.submit 'Accept', class: 'btn' %>
-                <% end %>
-              </div>
-
-              <div>
-                <%= simple_form_for friendship do |f| %>
-                  <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
-                  <%= f.submit 'Reject', class: 'btn' %>
-                <% end %>
-              </div>
-            </div>
+        <div class="d-flex justify-content-evenly">
+          <div>
+            <%= simple_form_for friendship do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: 'accepted'} %>
+              <%= f.submit 'Accept', class: 'btn' %>
+            <% end %>
           </div>
-      <% end %>
-      <% end %>
 
-
-    <div class="trips">
-      <h5><%= @user.first_name %>'s Trips</h5>
-      <% @user.trips.each do |trip| %>
-        <div class="trip" >
-          <%= link_to "#{trip.name}", trip_path(trip) %>
+          <div>
+            <%= simple_form_for friendship do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: 'rejected'} %>
+              <%= f.submit 'Reject', class: 'btn' %>
+            <% end %>
+          </div>
         </div>
-      <% end %>
+      </div>
+    <% end %>
+  <% end %>
 
+  <div class ="bio">
+    <h5>About me</h5>
+    <%= @user.profile_bio %>
+  </div>
+
+  <div class="trips">
+    <h5><%= @user.first_name %>'s Trips</h5>
+    <% @user.trips.each do |trip| %>
+      <div class="trip" >
+        <%= link_to "#{trip.name}", trip_path(trip) %>
+      </div>
+    <% end %>
   </div>
 
 </div>
