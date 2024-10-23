@@ -1,5 +1,6 @@
 <div class="container">
-  <h1>Travellers going to <%= @location.city %></h1>
+  <h1><%= @location.city %></h1>
+  <p>Travellers also going to <%= @location.city %></p>
   <% @locations.each do |location| %>
   <div class="location-user-cards">
       <%= link_to user_path(location.trip.user)  do %>
