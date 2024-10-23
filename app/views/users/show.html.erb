@@ -1,8 +1,8 @@
 <div class = "container">
   <div class="profile-card">
-    <div class="card-profile" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0)), url('<%= cl_image_path @user.photo.key %>')">
       <h5><%= @user.first_name %> <%= @user.last_name %></h5>
-    </div>
+    <div class="card-profile" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0)), url('<%= cl_image_path @user.photo.key %>')">
+      </div>
     <div class = "friend-request-button">
       <% if @is_friend&.status == "pending" %>
         Friend request sent
