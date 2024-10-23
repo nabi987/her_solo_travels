@@ -6,7 +6,8 @@
       <%= text_field_tag :query,
             params[:query],
             class: "form-control",
-            placeholder: "Type a name"
+            placeholder: "Type a name",
+            style: "height: 43px;"
         %>
       <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
     <% end %>
