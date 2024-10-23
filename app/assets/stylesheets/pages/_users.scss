@@ -57,3 +57,55 @@ h4{
   padding: 20px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
+
+.user-show-img{
+  display: flex;
+  justify-content: center;
+
+}
+
+
+.user-show-img img{
+  width: 70%;
+  border-radius:5px;
+  margin: 5px;
+  height: 250px;
+  object-fit: cover;
+}
+
+
+
+.about-user{
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 0px;
+}
+
+.user-bio-trips{
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+
+}
+
+.user-bio-trips ul{
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.friend-request-button{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px;
+
+}
