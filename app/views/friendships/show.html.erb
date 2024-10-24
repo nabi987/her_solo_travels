@@ -1,6 +1,15 @@
-
 <div class="message_container">
-
+  <% if current_user.id == @friendship.requester %>
+      <% other_user = @friendship.requestee %>
+      <div>
+        <%=cl_image_tag @friendship.requester.photo.key, class:"home-avatar"%> <p>Chat with <%= @friendship.requester.first_name %></p>
+      </div>
+    <%else%>
+      <% other_user = @friendship.requester %>
+      <div>
+        <%=cl_image_tag @friendship.requestee.photo.key, class:"home-avatar"%> <p>Chat with <%=  @friendship.requestee.first_name %></p>
+      </div>
+      <% end %>
   <div class="message-box">
     <%= simple_form_for [@friendship, @message],
       html: {class: "d-flex",
