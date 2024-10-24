@@ -8,7 +8,7 @@
       <%= f.input :city, label: "City", input_html: { class: "form-control" }, required: false %>
     </div>
     <div>
-      <%= f.input :activites, label: "Activities", input_html: { class: "form-control" }, required: false %>
+      <%= f.input :activites, label: "Activities", input_html: { class: "form-control", placeholder: "Beaches, local markets, city tours..." }, required: false %>
     </div>
     <div>
       <%= f.input :start_date, label: "Start Date", as: :string, input_html: { data: { controller: "datepicker" }, class: "form-control" }, required: false %>
