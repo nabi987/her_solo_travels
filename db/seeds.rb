@@ -160,27 +160,96 @@ require "open-uri"
 
 puts "creating trips..."
 
-robinia = User.find_by(first_name: "Robinia")
+tiertza = User.find_by(first_name: "Tiertza")
 
-bali = Trip.create!(
-  name: "Indonesia",
-  user: robinia
+us = Trip.create!(
+  name: "US baby!!",
+  user: tiertza
 )
 
-bali_image = Cloudinary::Uploader.upload("https://images.unsplash.com/photo-1643400814192-381f57499b42?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-bali.photo.attach(
-  io: URI.open(bali_image['secure_url']),
-  filename: "bali_trip.png",
-  content_type: bali_image['format']
+us_image = Cloudinary::Uploader.upload("https://images.unsplash.com/photo-1485871981521-5b1fd3805eee?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+us.photo.attach(
+  io: URI.open(us_image['secure_url']),
+  filename: "us_trip.png",
+  content_type: us_image['format']
 )
 
 Location.create!(
-  country: "Indonesia",
-  city: "Bali",
-  start_date: "15-04-2024",
-  end_date: "03-05-2024",
-  activites: "Surfing and temples",
-  trip: bali
+  country: "United States",
+  city: "New York",
+  start_date: "01-11-2024",
+  end_date: "15-01-2025",
+  activites: "Shopping, Christmas vibes, bagels",
+  trip: us
+)
+
+atlante = User.find_by(first_name: "Atlante")
+
+jordan = Trip.create!(
+  name: "Jordan 2025",
+  user: atlante
+)
+
+jordan_image = Cloudinary::Uploader.upload("https://images.unsplash.com/photo-1701223555020-054e2beabbaf?q=80&w=2371&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+jordan.photo.attach(
+  io: URI.open(jordan_image['secure_url']),
+  filename: "jordan_trip.png",
+  content_type: jordan_image['format']
+)
+
+Location.create!(
+  country: "Jordan",
+  city: "Petra",
+  start_date: "10-02-2025",
+  end_date: "30-03-2025",
+  activites: "Monastery, Royal Tombs, Great temple",
+  trip: jordan
+)
+
+lara = User.find_by(first_name: "Lara")
+
+uzbekistan = Trip.create!(
+  name: "Uzbekistan 2025",
+  user: lara
+)
+
+uzbekistan_image = Cloudinary::Uploader.upload("https://images.unsplash.com/photo-1672353928061-0a740ff0b763?q=80&w=2487&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+uzbekistan.photo.attach(
+  io: URI.open(uzbekistan_image['secure_url']),
+  filename: "uzbekistan_trip.png",
+  content_type: uzbekistan_image['format']
+)
+
+Location.create!(
+  country: "Uzbekistan",
+  city: "Samarkand",
+  start_date: "01-12-2024",
+  end_date: "28-12-2024",
+  activites: "Gur-e-Amir, Shah-i-Zinda, Siyob Bozor",
+  trip: uzbekistan
+)
+
+marcella = User.find_by(first_name: "Marcella")
+
+berlin = Trip.create!(
+  name: "berlin christmas markets",
+  user: marcella
+)
+
+berlin_image = Cloudinary::Uploader.upload("https://images.unsplash.com/photo-1512729360855-0d1e1b0983a2?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+berlin.photo.attach(
+  io: URI.open(berlin_image['secure_url']),
+  filename: "berlin_trip.png",
+  content_type: berlin_image['format']
+)
+
+Location.create!(
+  country: "Germany",
+  city: "Berlin",
+  start_date: "01-12-2024",
+  end_date: "15-12-2024",
+  activites: "Charlottenburg Palace christmas market, mulled wine",
+  trip: berlin
 )
 
 puts "finished!"
