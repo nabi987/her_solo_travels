@@ -10,7 +10,7 @@
       <% else %>
       <%= simple_form_for @friendship do |f| %>
           <%= f.input :requestee_id, label:false, input_html:{value: @user.id, class:"d-none"} %>
-          <%= f.submit "Add", class: "btn btn-warning" %>
+          <%= f.submit "Add friend", class: "btn btn-warning" %>
         <% end %>
       <% end %>
       </div>
