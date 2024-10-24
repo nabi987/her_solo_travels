@@ -24,12 +24,20 @@
 
   <div class ="user-bio-trips">
     <h5><%= @user.first_name %>'s Trips</h5>
+    <hr style ="border: 1px solid #f8d1c1;">
     <% if @user.trips.any? %>
     <ul>
     <% @user.trips.each do |trip| %>
-      <li><%= trip.name %></li>
+      <li><strong><%= trip.name %></strong></li>
+      <% trip.locations.each do |location| %>
+       <li> <i class="fa-solid fa-location-dot"> </i> <%= location.city %></li>
+       <li>  <i class="fa-solid fa-receipt"></i> <%= location.activites %></p></li>
+      <% end %>
+       <hr style ="border: 1px solid #f8d1c1;">
+
     <% end %>
     </ul>
+
     <% else %>
       <p>No trips planned.</p>
     <% end %>

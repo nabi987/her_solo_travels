@@ -6,7 +6,11 @@ padding-left: 10px;
 padding-top: 5px;
 padding-right: 10px;
 text-align: center;
-p{
+background-image: url('chat_background.png');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
+  p{
   padding-top: 5px;
 }
 }
@@ -42,16 +46,16 @@ height: calc(100vh - 360px);
 
   .message.sent .message-content {
     align-self: flex-end;
-    background: $blue;
-    color: $light-gray;
+    background: #ECCBAA;
+    color: white;
   }
 
   .message.received .message-content {
     align-self: flex-start;
-    background: $gray-200;
+    background: white;
   }
   .send_div{
     position: static  ;
     bottom: 50px;
-    background-color: aliceblue;
+    background-color: white;
   }

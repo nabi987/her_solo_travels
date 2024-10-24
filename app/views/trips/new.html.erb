@@ -1,10 +1,10 @@
 <div class="container">
   <div class="trip-form">
-    <h1>Create a new trip</h1>
+    <h1>Add a new trip</h1>
     <%= simple_form_for @trip do |f| %>
       <%= f.input :name, required: false, class: "input" %>
       <%= f.input :photo, as: :file, class: "input" %>
-      <%= f.button :submit, class: "btn btn-warning" %>
+      <%= f.submit 'Add', class: "btn btn-warning" %>
     <% end %>
   </div>
 </div>
