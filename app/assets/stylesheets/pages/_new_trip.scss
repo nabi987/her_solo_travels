@@ -8,20 +8,15 @@
 .trip-form{
   max-width: 800px;
   padding: 20px;
-  .trip_name, .trip_photo{
-    input{
-    background-color: white;
-    }
-  }
 }
 
 .btn {
-  background-color: #F8D1C1;
+  background-color: #F5A3A3;
   transition: background-color 0.3s;
 }
 
 .btn:hover {
-  background-color: #F5A3A3;
+  background-color: #ffceba;
 }
 
 h1{
