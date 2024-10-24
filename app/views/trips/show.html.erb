@@ -19,7 +19,7 @@
     </div>
 
     <div data-controller="toggle" class="mt-5">
-      <button data-action="click->toggle#fire" class="button">Add location</button>
+      <button data-action="click->toggle#fire" class="btn">Add location</button>
         <div class="locations-form">
           <div data-toggle-target="togglableElement" class="d-none">
             <%= render "locations/new", location: @location, trip: @trip %>

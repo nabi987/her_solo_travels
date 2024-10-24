@@ -5,6 +5,10 @@ flex-direction: column;
 padding-left: 10px;
 padding-top: 10px;
 padding-right: 10px;
+background-image: url('chat_background.png');
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
 }
 
 .message_div{
@@ -38,7 +42,7 @@ height: calc(100vh - 265px);
 
   .message.sent .message-content {
     align-self: flex-end;
-    background: $blue;
+    background: #ECCBAA;
     color: $light-gray;
   }
 
@@ -49,5 +53,5 @@ height: calc(100vh - 265px);
   .send_div{
     position: static  ;
     bottom: 50px;
-    background-color: aliceblue;
+    background-color: white;
   }
