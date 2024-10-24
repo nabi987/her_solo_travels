@@ -8,6 +8,11 @@
 .trip-form{
   max-width: 800px;
   padding: 20px;
+  .trip_name, .trip_photo{
+    input{
+    background-color: white;
+    }
+  }
 }
 
 .btn {
