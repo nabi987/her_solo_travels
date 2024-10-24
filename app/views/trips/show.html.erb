@@ -5,11 +5,11 @@
   <div class="box">
       <div class="location-cards">
         <%@trip.locations.each do |location|  %>
-        <div class="card" style="background-image: linear-gradient(to bottom, rgba(129 120 120 / 0%), rgba(0 0 0 / 63%)), url('<%= cl_image_path @trip.photo.key %>')">
+        <div class="card" style="background-image: linear-gradient(to bottom, rgba(129 120 120 / 0%), rgba(0 0 0 / 63%)), url('<%= cl_image_path @trip.photo.key %>'); background-size: 100%; background-position: center;">
           <%= link_to location_path(location) do %>
-            <h2><%= location.city %>, <%= location.country %> </h2>
-            <p> <i class="fa-solid fa-receipt"></i> <%= location.activites %> </p>
-            <p> <i class="fa-solid fa-calendar-days" style="color: #000000;"></i>
+            <h2 style="color: white;"><%= location.city %>, <%= location.country %> </h2>
+            <p style="color: white;"> <i class="fa-solid fa-receipt" style="color: #ffffff;"></i>  <%= location.activites %> </p>
+            <p style="color: white;"> <i class="fa-solid fa-calendar-days" style="color: #ffffff;"></i>
             <%= location.start_date.strftime("%d %B %y") %>
             - <%= location.end_date.strftime("%d %B %y") %> </p>
           <% end %>
