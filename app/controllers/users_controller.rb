@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @is_friend = Friendship.find_by(requestee: current_user, requester: @user) || Friendship.find_by(
       requestee: @user, requester: current_user
     )
+
   end
 
   def profile
