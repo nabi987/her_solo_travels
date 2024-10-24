@@ -3,18 +3,22 @@
 display: flex;
 flex-direction: column;
 padding-left: 10px;
-padding-top: 10px;
+padding-top: 5px;
 padding-right: 10px;
+text-align: center;
 background-image: url('chat_background.png');
 background-repeat: no-repeat;
 background-size: cover;
 background-position: center;
+  p{
+  padding-top: 5px;
+}
 }
 
 .message_div{
 overflow: scroll;
 width: 100%;
-height: calc(100vh - 265px);
+height: calc(100vh - 360px);
 }
 
 .message {
